@@ -1,14 +1,19 @@
-# app.py
 from flask import Flask, jsonify
 import requests
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-load_dotenv()  # carrega variáveis do .env
+load_dotenv() 
 
 app = Flask(__name__)
-CORS(app)  # habilita CORS para todas as rotas
+CORS(app, resources={
+    r"/api/*": {
+        "origins": [
+            "https://portfolio-nobre.discloud.app"
+        ]
+    }
+})
 
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -23,8 +28,6 @@ def get_repos():
 
 @app.route("/api/user/<username>")
 def get_user(username):
-
-    print("TOKEN =", GITHUB_TOKEN)
 
     url = f"https://api.github.com/users/{username}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
