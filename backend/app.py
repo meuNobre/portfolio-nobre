@@ -23,6 +23,9 @@ def get_repos():
 
 @app.route("/api/user/<username>")
 def get_user(username):
+
+    print("TOKEN =", GITHUB_TOKEN)
+
     url = f"https://api.github.com/users/{username}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     response = requests.get(url, headers=headers)
@@ -34,13 +37,13 @@ def get_user(username):
 @app.route("/api/repos/<repo_name>")
 def get_repo(repo_name):
     url = f"https://api.github.com/repos/{USERNAME}/{repo_name}"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
     response = requests.get(url, headers=headers)
 
-    if response.status_code != 200:
-        return jsonify({"error": "Repositório não encontrado"}), 404
+    print("STATUS =", response.status_code)
+    print("BODY =", response.text)
 
-    return jsonify(response.json())
+    return jsonify(response.json()), response.status_code
 
 @app.route("/api/repos/<repo_name>/commits")
 def get_repo_commits(repo_name):
