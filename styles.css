@@ -925,6 +925,11 @@ body {
   font-size: 18px;
 }
 
+.markdown-content a{
+  color: var(--neon-purple);
+  text-decoration: underline;
+}
+
 .markdown-content ul {
   margin-bottom: 24px;
   padding-left: 24px;

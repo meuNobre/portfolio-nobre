@@ -1,6 +1,6 @@
 const GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "https://portfolio.discloud.app/api", // URL da API Flask
+  apiBaseUrl: "https://portfolio.discloud.app/api",
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 
@@ -123,8 +123,8 @@ async function updateGitHubStats() {
 
   // Buscar total de commits
   let totalCommits = 0
-  for (const repo of GITHUB_CONFIG.repos) {
-    const commits = await fetchRepoCommits(GITHUB_CONFIG.username, repo)
+  for (const repo of repos) {
+    const commits = await fetchRepoCommits(GITHUB_CONFIG.username, repo.name)
     totalCommits += commits.length
   }
   console.log("[NCode] 📈 Total de commits:", totalCommits)
