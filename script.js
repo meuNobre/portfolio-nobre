@@ -7,7 +7,7 @@ const state = {
 
 window.GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "http://127.0.0.1:5000/api",
+  apiBaseUrl: "https://portfolio-nobre.onrender.com/api",
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 

@@ -5,7 +5,7 @@
 
 const GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "http://127.0.0.1:5000/api", // URL da API Flask
+  apiBaseUrl: "https://portfolio-nobre.onrender.com/api", // URL da API Flask
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 
