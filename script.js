@@ -7,7 +7,7 @@ const state = {
 
 window.GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "https://portfolio-nobre.onrender.com/api",
+  apiBaseUrl: "https://portfolio.discloud.app//api",
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 

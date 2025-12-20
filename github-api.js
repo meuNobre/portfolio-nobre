@@ -1,11 +1,6 @@
-/**
- * GITHUB API INTEGRATION
- * Integração GitHub para João Miguel Nobre Barros
- */
-
 const GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "https://portfolio-nobre.onrender.com/api", // URL da API Flask
+  apiBaseUrl: "https://portfolio.discloud.app/api", // URL da API Flask
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 
