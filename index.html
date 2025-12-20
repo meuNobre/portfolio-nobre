@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nobre - Developer Portfolio</title>
+    <meta name="description" content="João Miguel Nobre Barros - Fullstack Developer, Robotics Mentor & Code Educator">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Adding new components stylesheet -->
+    <link rel="stylesheet" href="components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- IDE Header -->
+    <header class="ide-header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-icon">{ N }</span>
+                <span class="logo-text">NobreIDE</span>
+            </div>
+            <div class="menu-bar">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Navigate</span>
+                <span>Code</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <span class="project-name">NobrePortfolio.main</span>
+        </div>
+        <div class="header-right">
+            <div class="header-actions">
+                <button class="icon-btn" id="easterEggBtn" title="Desafios e Easter Eggs">🎮</button>
+                <button class="icon-btn" id="syncBtn" title="Sincronizar dados do GitHub">🔄</button>
+                <button class="icon-btn" id="settingsBtn" title="Configurações do portfólio">⚙️</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="ide-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span>📁 Project</span>
+            </div>
+            <nav class="file-tree">
+                <div class="tree-item expanded">
+                    <span class="tree-icon">📂</span>
+                    <span>NobrePortfolio</span>
+                </div>
+                <div class="tree-children">
+                    <div class="tree-item file" data-file="home">
+                        <span class="tree-icon">🏠</span>
+                        <span>Dashboard.jsx</span>
+                    </div>
+                    <div class="tree-item file" data-file="stack">
+                        <span class="tree-icon">🔧</span>
+                        <span>TechStack.ts</span>
+                    </div>
+                    <div class="tree-item file" data-file="projects">
+                        <span class="tree-icon">💼</span>
+                        <span>Projects.ts</span>
+                    </div>
+                    <div class="tree-item file" data-file="mentoria">
+                        <span class="tree-icon">🎓</span>
+                        <span>Mentoria.py</span>
+                    </div>
+                    <div class="tree-item file" data-file="about">
+                        <span class="tree-icon">📝</span>
+                        <span>about-me.md</span>
+                    </div>
+                    <div class="tree-item file" data-file="network">
+                        <span class="tree-icon">🤝</span>
+                        <span>Network.tsx</span>
+                    </div>
+                    <div class="tree-item file" data-file="extras">
+                        <span class="tree-icon">🎯</span>
+                        <span>Extras.js</span>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Editor Area -->
+        <main class="editor-area">
+            <!-- Tabs -->
+            <div class="editor-tabs">
+                <div class="tab active" data-tab="home">
+                    <span class="tab-icon">🏠</span>
+                    <span>Dashboard.jsx</span>
+                    <button class="tab-close">×</button>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="editor-content">
+                <!-- Home/Dashboard -->
+                <section id="home" class="content-section active">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="dashboard">
+                            <div class="dashboard-header">
+                                <h1 class="glitch" data-text="João Miguel Nobre Barros">João Miguel Nobre Barros</h1>
+                                <p class="subtitle">Fullstack Developer • Robotics Mentor • Code Educator</p>
+                                <div class="stats-inline">
+                                    <span class="stat-badge">8 Anos de Código</span>
+                                    <span class="stat-badge">🏆 5+ Equipes Mentoradas</span>
+                                    <span class="stat-badge">📍 Fortaleza, CE</span>
+                                </div>
+                            </div>
+
+                            <div class="widgets-grid">
+                                <!-- Code Executor Widget -->
+                                <div class="widget code-executor">
+                                    <div class="widget-header">
+                                        <span class="widget-title">⚡ Code Executor</span>
+                                        <span class="widget-status online">●</span>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="code-editor-mini">
+                                            <textarea id="codeInput" placeholder="# Experimente Python ou JavaScript aqui
+print('Hello from Nobre!')">def fibonacci(n):
+    if n <= 1: return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print(f"Fib(10) = {fibonacci(10)}")</textarea>
+                                        </div>
+                                        <div class="executor-controls">
+                                            <select id="langSelect">
+                                                <option value="python">Python</option>
+                                                <option value="javascript">JavaScript</option>
+                                            </select>
+                                            <button class="btn-run" id="runCode">▶ Run</button>
+                                        </div>
+                                        <div class="output-console">
+                                            <div class="console-header">Output:</div>
+                                            <pre id="codeOutput">Aguardando execução...</pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Metrics Dashboard Widget -->
+                                <div class="widget metrics-dashboard">
+                                    <div class="widget-header">
+                                        <span class="widget-title">📈 Impact Metrics</span>
+                                        <span class="widget-status online">●</span>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="metrics-grid">
+                                            <div class="metric-card">
+                                                <div class="metric-value" data-target="5">0</div>
+                                                <div class="metric-label">Equipes Mentoradas</div>
+                                                <div class="metric-icon">🏆</div>
+                                            </div>
+                                            <div class="metric-card">
+                                                <div class="metric-value" data-target="8">0</div>
+                                                <div class="metric-label">Anos de Experiência</div>
+                                                <div class="metric-icon">⏱️</div>
+                                            </div>
+                                            <div class="metric-card">
+                                                <div class="metric-value" data-target="50">0+</div>
+                                                <div class="metric-label">Estudantes Impactados</div>
+                                                <div class="metric-icon">👥</div>
+                                            </div>
+                                            <div class="metric-card">
+                                                <div class="metric-value" data-target="4">0</div>
+                                                <div class="metric-label">Nacionais Alcançados</div>
+                                                <div class="metric-icon">🎯</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tech Stack Section (NOVA SEÇÃO SIMPLIFICADA) -->
+                <section id="stack" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="stack-container">
+                            <h2 class="section-title">🔧 Tech Stack & Languages</h2>
+                            <p class="section-subtitle">Ferramentas e tecnologias que domino e uso no dia a dia</p>
+
+                            <!-- Simplified stacks grid with logos -->
+                            <div class="stacks-grid">
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="stack-logo">
+                                    <span class="stack-name">HTML</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="stack-logo">
+                                    <span class="stack-name">CSS</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="stack-logo">
+                                    <span class="stack-name">JavaScript</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="stack-logo">
+                                    <span class="stack-name">Java</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="stack-logo">
+                                    <span class="stack-name">Python</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="stack-logo">
+                                    <span class="stack-name">Flask</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="./assets/logo.svg" alt="Flet" class="stack-logo">
+                                    <span class="stack-name">Flet</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="stack-logo">
+                                    <span class="stack-name">Node.js</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="./assets/discord-icon-svgrepo-com.svg" alt="Discord.js" class="stack-logo">
+                                    <span class="stack-name">Discord.js</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="stack-logo">
+                                    <span class="stack-name">Git</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="stack-logo">
+                                    <span class="stack-name">GitHub</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="stack-logo">
+                                    <span class="stack-name">MySQL</span>
+                                </div>
+                                <div class="stack-item">
+                                    <img src="./assets/api-svgrepo-com.svg" alt="APIs" class="stack-logo">
+                                    <span class="stack-name">APIs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="projects-container">
+                            <h2 class="section-title">💼 Projetos Destacados</h2>
+                            
+                            <div class="project-card featured">
+                                <div class="project-header">
+                                    <div class="project-title">
+                                        <h3>Path Planner FRC para FLL</h3>
+                                        <span class="project-badge">Featured</span>
+                                    </div>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Robotics</span>
+                                        <span class="tech-tag">Spike Prime</span>
+                                    </div>
+                                </div>
+                                <div class="project-body">
+                                    <p class="project-description">
+                                        Sistema que gera trajetórias otimizadas e código Python para robôs Spike Prime, 
+                                        permitindo planejamento visual de caminhos complexos para competições FLL.
+                                    </p>
+                                    <div class="project-stats">
+                                        <span title="Stars no GitHub">⭐ 23</span>
+                                        <span title="Forks">🔄 8</span>
+                                        <span title="Watchers">👁️ 1</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/meuNobre/Path-Planner-FRC-for-FLL" target="_blank" class="btn-project btn-github">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                            </svg>
+                                            Ver no GitHub
+                                        </a>
+                                        <a href="https://github.com/meuNobre/Path-Planner-FRC-for-FLL" target="_blank" class="btn-project btn-site">
+                                            🌐 Acessar Projeto
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-title">
+                                        <h3>Sistema Fullstack Wayne Industries</h3>
+                                        <span class="project-badge">Infinity School</span>
+                                    </div>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flask</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                    </div>
+                                </div>
+                                <div class="project-body">
+                                    <p class="project-description">
+                                        Sistema completo com backend Flask + MySQL, frontend responsivo e dashboard funcional. 
+                                        Implementação de CRUD completo com autenticação e gerenciamento de dados.
+                                    </p>
+                                    <div class="project-stats">
+                                        <span>⭐ 15</span>
+                                        <span>🔄 5</span>
+                                        <span>👁️ 2</span>
+                                    </div>
+                                    <!-- Added GitHub and site buttons -->
+                                    <div class="project-actions">
+                                        <a href="https://github.com/meuNobre/wayne-industries-project" target="_blank" class="btn-project btn-github">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                            </svg>
+                                            Ver no GitHub
+                                        </a>
+                                        <a href="https://github.com/meuNobre/wayne-industries-project" target="_blank" class="btn-project btn-site">
+                                            🌐 Acessar Projeto
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Added activity chart to GitHub stats -->
+                            <div class="github-stats">
+                                <h3>📊 GitHub Activity</h3>
+                                
+                                <div class="github-grid">
+                                    <div class="github-card">
+                                        <div class="github-icon">⭐</div>
+                                        <div class="github-info">
+                                            <span class="github-value">50+</span>
+                                            <span class="github-label">Total Stars</span>
+                                        </div>
+                                    </div>
+                                    <div class="github-card">
+                                        <div class="github-icon">🔄</div>
+                                        <div class="github-info">
+                                            <span class="github-value">200+</span>
+                                            <span class="github-label">Commits</span>
+                                        </div>
+                                    </div>
+                                    <div class="github-card">
+                                        <div class="github-icon">📦</div>
+                                        <div class="github-info">
+                                            <span class="github-value">15+</span>
+                                            <span class="github-label">Repositories</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- New activity chart visualization -->
+                                <div class="activity-section">
+                                    <h4 style="color: #61dafb; margin-bottom: 15px;">Atividade dos últimos 12 meses</h4>
+                                    <div class="activity-chart" id="activityChartContainer">
+                                        <!-- will insert here later  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mentoria Section -->
+                <section id="mentoria" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="mentoria-container">
+                            <h2 class="section-title">🎓 Mentoria & Impacto</h2>
+                            <p class="section-subtitle">Transformando jovens em desenvolvedores através da robótica</p>
+
+                            <div class="teams-grid">
+                                <div class="team-card">
+                                    <div class="team-header">
+                                        <h3>Crazy Tech</h3>
+                                        <span class="team-year">2023/24</span>
+                                    </div>
+                                    <div class="team-achievement">
+                                        <span class="achievement-badge">🏆 Nacional FLL</span>
+                                        <span class="achievement-location">Ceará</span>
+                                    </div>
+                                    <div class="team-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 95%"></div>
+                                        </div>
+                                        <span class="progress-label">95% Objetivos Alcançados</span>
+                                    </div>
+                                </div>
+
+                                <div class="team-card">
+                                    <div class="team-header">
+                                        <h3>New Xp</h3>
+                                        <span class="team-year">2023/24</span>
+                                    </div>
+                                    <div class="team-achievement">
+                                        <span class="achievement-badge">🏆 Nacional FLL</span>
+                                        <span class="achievement-location">Ceará</span>
+                                    </div>
+                                    <div class="team-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 92%"></div>
+                                        </div>
+                                        <span class="progress-label">92% Objetivos Alcançados</span>
+                                    </div>
+                                </div>
+
+                                <div class="team-card">
+                                    <div class="team-header">
+                                        <h3>Pipeline Surfers</h3>
+                                        <span class="team-year">2025/26</span>
+                                    </div>
+                                    <div class="team-achievement">
+                                        <span class="achievement-badge">🏆 Nacional FLL</span>
+                                        <span class="achievement-location">Santa Catarina</span>
+                                    </div>
+                                    <div class="team-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 90%"></div>
+                                        </div>
+                                        <span class="progress-label">90% Objetivos Alcançados</span>
+                                    </div>
+                                </div>
+
+                                <div class="team-card">
+                                    <div class="team-header">
+                                        <h3>Construtores</h3>
+                                        <span class="team-year">2024/25</span>
+                                    </div>
+                                    <div class="team-achievement">
+                                        <span class="achievement-badge">🏆 Nacional FLL</span>
+                                        <span class="achievement-location">Ceará</span>
+                                    </div>
+                                    <div class="team-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 88%"></div>
+                                        </div>
+                                        <span class="progress-label">88% Objetivos Alcançados</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="impact-section">
+                                <h3>💡 Contribuições & Recursos</h3>
+                                <div class="contributions">
+                                    <!-- Made manual clickable to Forms -->
+                                    <div class="contribution-card">
+                                        <div class="contrib-icon">📚</div>
+                                        <div class="contrib-content">
+                                            <h4>Manual de Python FLL</h4>
+                                            <p>Recurso educacional usado por jovens de todo o Brasil para aprender programação de robôs</p>
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnpKDW0rpQE3XSvJRbq4I7VUhD2dS1gzIbUpuKy4Ts9FLAyw/viewform?usp=send_form" target="_blank" class="contrib-link">📝 Acessar Manual</a>
+                                        </div>
+                                    </div>
+                                    <!-- Made nobre_dos_codigos clickable to Instagram -->
+                                    <div class="contribution-card">
+                                        <div class="contrib-icon">📱</div>
+                                        <div class="contrib-content">
+                                            <h4>@nobre_dos_codigos</h4>
+                                            <p>Página no Instagram compartilhando conhecimento e dicas de programação</p>
+                                            <a href="https://instagram.com/nobre_dos_codigos" target="_blank" class="contrib-link">📱 Seguir no Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-tips" id="showTipsModal">✨ Ver Dicas & Aprendizados</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="markdown-viewer">
+                            <div class="markdown-content">
+                                
+                        <h1># João Miguel Nobre Barros</h1>
+                                
+                                <blockquote>
+                                    <p>"Code is poetry, but good code is poetry that others can read."</p>
+                                    <cite>- Developer's Mantra</cite>
+                                </blockquote>
+
+                                <h2>## 👨‍💻 Sobre Mim</h2>
+                                <p>
+                                    Tenho 16 anos e programo desde os 8. Minha jornada começou com curiosidade 
+                                    e se transformou em paixão. Atualmente sou estudante técnico em Desenvolvimento 
+                                    de Sistemas e mentor de robótica, combinando código e educação para transformar 
+                                    vidas.
+                                </p>
+
+                                <h2>## 🎯 Filosofia de Código</h2>
+                                <ul>
+                                    <li><strong>Modularidade:</strong> Cada função tem um propósito único e bem definido</li>
+                                    <li><strong>Segurança desde o início:</strong> Prevenção é melhor que correção</li>
+                                    <li><strong>Aprendizado prático:</strong> A melhor forma de aprender é construindo</li>
+                                    <li><strong>Compartilhamento:</strong> Conhecimento só cresce quando é dividido</li>
+                                </ul>
+
+                            
+                                <h2>## 🤖 Robótica & Educação</h2>
+                                <p>
+                                    Como mentor, desenvolvi materiais educacionais e sistemas que ajudaram equipes 
+                                    a alcançarem competições nacionais. Meu foco está em tornar a programação 
+                                    acessível e empoderar jovens através da tecnologia.
+                                </p>
+
+                                <h2>## 📫 Contato</h2>
+                                <p>
+                                    📧 Email: nobrecoding@gmail.com<br>
+                                    📱 Instagram: @nobre_dos_codigos<br>
+                                    📍 Fortaleza, Ceará, Brasil
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- New Network section with contact form -->
+                <section id="network" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="network-container">
+                            <h2 class="section-title">🤝 Network & Contato</h2>
+                            <p class="section-subtitle">Estou aberto para networking! Se precisar de algo, entre em contato comigo</p>
+
+                            <div class="contact-card">
+                                <div class="contact-info">
+                                    <div class="info-item">
+                                        <span class="info-icon">📧</span>
+                                        <div class="info-text">
+                                            <strong>Email</strong>
+                                            <p>Entre em contato pelo formulário ao lado</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-icon">📱</span>
+                                        <div class="info-text">
+                                            <strong>Instagram</strong>
+                                            <p><a href="https://instagram.com/nobre_dos_codigos" target="_blank">@nobre_dos_codigos</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-icon">💼</span>
+                                        <div class="info-text">
+                                            <strong>GitHub</strong>
+                                            <p><a href="https://github.com/meuNobre" target="_blank">@meuNobre</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-icon">📍</span>
+                                        <div class="info-text">
+                                            <strong>Localização</strong>
+                                            <p>Fortaleza, CE, Brasil</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-form-wrapper">
+                                    <form id="contactForm" class="contact-form">
+                                        <div class="form-group">
+                                            <label for="contactName">Nome</label>
+                                            <input type="text" id="contactName" name="name" required placeholder="Seu nome completo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactEmail">Email</label>
+                                            <input type="email" id="contactEmail" name="email" required placeholder="seuemail@exemplo.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactSubject">Assunto</label>
+                                            <input type="text" id="contactSubject" name="subject" required placeholder="Sobre o que você quer falar?">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactMessage">Mensagem</label>
+                                            <textarea id="contactMessage" name="message" required rows="5" placeholder="Sua mensagem..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn-submit">
+                                            <span class="btn-text">Enviar Mensagem</span>
+                                            <span class="btn-loading">Enviando...</span>
+                                        </button>
+                                        <div class="form-feedback"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Extras Section -->
+                <section id="extras" class="content-section">
+                    <div class="line-numbers">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="extras-container">
+                            <h2 class="section-title">🎯 Extras & Easter Eggs</h2>
+                            
+                            <div class="extras-grid">
+                                <div class="extra-card">
+                                    <h3>🔍 Easter Egg Hunter</h3>
+                                    <p>Encontre 5 easter eggs escondidos neste portfólio!</p>
+                                    <div class="easter-eggs">
+                                        <div class="egg-item" id="egg1">
+                                            <span class="egg-icon">🥚</span>
+                                            <span class="egg-status">{ N }</span>
+                                            <span class="egg-hint-small">3× logo</span>
+                                        </div>
+                                        <div class="egg-item" id="egg2">
+                                            <span class="egg-icon">🥚</span>
+                                            <span class="egg-status">???</span>
+                                            <span class="egg-hint-small">digite...</span>
+                                        </div>
+                                        <div class="egg-item" id="egg3">
+                                            <span class="egg-icon">🥚</span>
+                                            <span class="egg-status">⬆⬆⬇⬇</span>
+                                            <span class="egg-hint-small">Konami</span>
+                                        </div>
+                                        <div class="egg-item" id="egg4">
+                                            <span class="egg-icon">🥚</span>
+                                            <span class="egg-status">🔄</span>
+                                            <span class="egg-hint-small">5× sync</span>
+                                        </div>
+                                        <!-- Atualizado para Ctrl+Shift+D -->
+                                        <div class="egg-item" id="egg5">
+                                            <span class="egg-icon">🥚</span>
+                                            <span class="egg-status">⌨️</span>
+                                            <span class="egg-hint-small">Ctrl+Shift+D</span>
+                                        </div>
+                                    </div>
+                                    <p class="egg-hint">Dica: Procure nos lugares menos óbvios... e use o teclado!</p>
+                                </div>
+
+                                <div class="extra-card">
+                                    <h3>💻 Interactive Code Snippets</h3>
+                                    <div class="interactive-snippets">
+                                        <div class="snippet-buttons">
+                                            <button class="snippet-btn active" data-snippet="fibonacci">Fibonacci</button>
+                                            <button class="snippet-btn" data-snippet="sorting">Quick Sort</button>
+                                            <button class="snippet-btn" data-snippet="binarySearch">Binary Search</button>
+                                        </div>
+                                        <div class="snippet-display" id="snippetDisplay">
+                                            <pre><code>// Selecione um snippet acima para ver o código</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="extras-grid" style="margin-top: 2rem;">
+                                <div class="extra-card">
+                                    <h3>🎨 Theme Customizer</h3>
+                                    <p>Personalize as cores do portfólio</p>
+                                    <div class="theme-options">
+                                        <button class="theme-btn" data-theme="default">
+                                            <span class="theme-preview" style="background: linear-gradient(135deg, #61dafb, #98c379);"></span>
+                                            Default
+                                        </button>
+                                        <button class="theme-btn" data-theme="purple">
+                                            <span class="theme-preview" style="background: linear-gradient(135deg, #c678dd, #e06c75);"></span>
+                                            Purple
+                                        </button>
+                                        <button class="theme-btn" data-theme="matrix">
+                                            <span class="theme-preview" style="background: linear-gradient(135deg, #00ff00, #003300);"></span>
+                                            Matrix
+                                        </button>
+                                        <button class="theme-btn" data-theme="sunset">
+                                            <span class="theme-preview" style="background: linear-gradient(135deg, #ff6b6b, #ffd166);"></span>
+                                            Sunset
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="extra-card">
+                                    <h3>🎵 Sound Effects</h3>
+                                    <p>Ative efeitos sonoros nas interações</p>
+                                    <div class="sound-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="soundToggle">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <span>Sons de click e hover</span>
+                                    </div>
+                                    <button class="btn-primary" id="testSound" style="margin-top: 1rem;">
+                                        🔊 Testar Som
+                                    </button>
+                                </div>
+
+                                <div class="extra-card">
+                                    <h3>📊 Portfolio Stats</h3>
+                                    <p>Estatísticas do portfólio</p>
+                                    <div class="portfolio-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Linhas de Código:</span>
+                                            <span class="stat-value" id="linesOfCode">2847</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Componentes:</span>
+                                            <span class="stat-value">23</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Animações:</span>
+                                            <span class="stat-value">42</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Easter Eggs:</span>
+                                            <span class="stat-value">5</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="extra-card">
+                                    <h3>⚡ Performance Monitor</h3>
+                                    <p>Monitore a performance do portfólio</p>
+                                    <div class="performance-stats">
+                                        <div class="perf-item">
+                                            <span class="perf-label">FPS:</span>
+                                            <span class="perf-value" id="fpsCounter">60</span>
+                                        </div>
+                                        <div class="perf-item">
+                                            <span class="perf-label">Memória:</span>
+                                            <span class="perf-value" id="memoryUsage">--</span>
+                                        </div>
+                                        <div class="perf-item">
+                                            <span class="perf-label">Load Time:</span>
+                                            <span class="perf-value" id="loadTime">--</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn-secondary" id="runPerformanceTest" style="margin-top: 1rem;">
+                                        🚀 Testar Performance
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Terminal/Console -->
+    <footer class="terminal">
+        <div class="terminal-header">
+            <span>Terminal</span>
+            <div class="terminal-tabs">
+                <span class="terminal-tab active">Console</span>
+                <span class="terminal-tab">Problems</span>
+                <span class="terminal-tab">Output</span>
+            </div>
+        </div>
+        <div class="terminal-content">
+            <div class="terminal-line">
+                <span class="terminal-prompt">nobre@portfolio:~$</span>
+                <span class="terminal-text">Portfolio carregado com sucesso!</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">nobre@portfolio:~$</span>
+                <span class="terminal-text">Bem-vindo ao mundo de Nobre - onde código encontra criatividade 🚀</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">nobre@portfolio:~$</span>
+                <span class="terminal-text terminal-cursor">_</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Tips -->
+    <div class="modal" id="tipsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✨ Dicas & Aprendizados de Mentoria</h2>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="tip-item">
+                    <h3>💡 Modularidade é Poder</h3>
+                    <p>Sempre divida seu código em funções pequenas e reutilizáveis. Cada função deve fazer uma coisa e fazer bem feito.</p>
+                </div>
+                <div class="tip-item">
+                    <h3>🛡️ Segurança Desde o Início</h3>
+                    <p>Nunca deixe segurança para depois. Validação de entrada e sanitização de dados devem ser implementadas desde o primeiro commit.</p>
+                </div>
+                <div class="tip-item">
+                    <h3>🎯 Aprenda Fazendo</h3>
+                    <p>A melhor forma de aprender programação é construindo projetos reais. Não tenha medo de errar - cada bug é uma oportunidade de aprendizado.</p>
+                </div>
+                <div class="tip-item">
+                    <h3>🤝 Compartilhe Conhecimento</h3>
+                    <p>Ensinar outros solidifica seu próprio conhecimento. Documente seu código e ajude iniciantes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adicionar modal de configurações -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <h2>⚙️ Configurações do Portfólio</h2>
+            <div class="config-section">
+                <h3>Aparência</h3>
+                <label>
+                    <input type="checkbox" id="animationsToggle" checked>
+                    Ativar animações
+                </label>
+                <label>
+                    <input type="checkbox" id="particlesToggle" checked>
+                    Mostrar partículas de fundo
+                </label>
+            </div>
+            <div class="config-section">
+                <h3>Acessibilidade</h3>
+                <label>
+                    <input type="checkbox" id="highContrastToggle">
+                    Alto contraste
+                </label>
+                <label>
+                    <input type="checkbox" id="reducedMotionToggle">
+                    Reduzir movimento
+                </label>
+            </div>
+            <div class="config-section">
+                <h3>GitHub</h3>
+                <p>Username: <strong>meuNobre</strong></p>
+                <button class="btn-primary" id="refreshGitHub">🔄 Atualizar Dados</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS 
+        (function() {
+            emailjs.init("yPHJpdtRqSg6Lp1cS"); 
+        })();
+    </script>
+    <script src="script.js"></script>
+    <script src="github-api.js"></script>
+    
+</body>
+</html>
