@@ -11,14 +11,11 @@ window.GITHUB_CONFIG = {
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 
-// Import EmailJS library
-const emailjs = window.emailjs
 
 // Inicialização
 document.addEventListener("DOMContentLoaded", () => {
   initializeHeaderButtons()
   initializeNavigation()
-  initializeCodeExecutor()
   initializeMetricsCounter()
   initializeSnippets()
   initializeEasterEggs()
@@ -167,76 +164,6 @@ function closeTab(fileName) {
   if (state.currentFile === fileName) {
     const newFile = state.openTabs[Math.max(0, tabIndex - 1)]
     switchToFile(newFile)
-  }
-}
-
-// Code Executor
-function initializeCodeExecutor() {
-  const runBtn = document.getElementById("runCode")
-  const codeInput = document.getElementById("codeInput")
-  const langSelect = document.getElementById("langSelect")
-  const output = document.getElementById("codeOutput")
-
-  runBtn.addEventListener("click", () => {
-    const code = codeInput.value
-    const lang = langSelect.value
-
-    output.style.color = "var(--neon-green)"
-
-    try {
-      if (lang === "python") {
-        executePythonSimulation(code, output)
-      } else if (lang === "javascript") {
-        executeJavaScript(code, output)
-      }
-
-      addTerminalMessage(`✅ Código ${lang} executado com sucesso`)
-    } catch (error) {
-      output.style.color = "var(--neon-red)"
-      output.textContent = `Error: ${error.message}`
-    }
-  })
-}
-
-function executePythonSimulation(code, output) {
-  output.textContent = "🐍 Python Simulation:\n"
-
-  if (code.includes("fibonacci")) {
-    output.textContent += "Fib(10) = 55\n"
-    output.textContent += "✓ Função fibonacci executada com sucesso!"
-  } else if (code.includes("print")) {
-    const matches = code.match(/print$$['"](.+)['"]$$/g)
-    if (matches) {
-      matches.forEach((match) => {
-        const text = match.match(/print$$['"](.+)['"]$$/)[1]
-        output.textContent += text + "\n"
-      })
-    }
-  } else {
-    output.textContent += "Código Python executado!\n"
-    output.textContent += "✓ Sem erros detectados"
-  }
-}
-
-function executeJavaScript(code, output) {
-  output.textContent = "⚡ JavaScript Execution:\n"
-
-  if (code.includes("fibonacci")) {
-    output.textContent += "Fib(10) = 55\n"
-    output.textContent += "✓ Função fibonacci executada!"
-  } else if (code.includes("console.log")) {
-    const matches = code.match(/console\.log$$['"](.+)['"]$$/g)
-    if (matches) {
-      matches.forEach((match) => {
-        const textMatch = match.match(/console\.log$$['"](.+)['"]$$/)
-        if (textMatch && textMatch[1]) {
-          output.textContent += textMatch[1].replace(/['"]/g, "") + "\n"
-        }
-      })
-    }
-  } else {
-    output.textContent += "Código JavaScript executado!\n"
-    output.textContent += "✓ Sem erros detectados"
   }
 }
 
@@ -499,36 +426,47 @@ function initializeContactForm() {
     feedback.style.display = "none"
 
     try {
-      // Send email using EmailJS
-      // Você precisa configurar uma conta em emailjs.com e criar um template
-      // Substitua 'YOUR_SERVICE_ID' e 'YOUR_TEMPLATE_ID' pelos seus IDs
-      const response = await emailjs.send(
-        "YOUR_SERVICE_ID", // Substitua pelo seu Service ID
-        "YOUR_TEMPLATE_ID", // Substitua pelo seu Template ID
+      const response = await fetch(
+        "https://api-send-email-sigma.vercel.app/api/contact",
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            website: "",
+          }),
+        }
       )
 
-      // Success
-      feedback.className = "form-feedback success"
-      feedback.textContent = "✅ Mensagem enviada com sucesso! Responderei em breve."
-      feedback.style.display = "block"
-      form.reset()
+       const result = await response.json()
 
-      addTerminalMessage(`📧 Email enviado de ${formData.name}`)
-    } catch (error) {
-      // Error
-      feedback.className = "form-feedback error"
-      feedback.textContent = "❌ Erro ao enviar mensagem. Tente novamente mais tarde."
-      feedback.style.display = "block"
+  if (!response.ok || !result.success) {
+    throw new Error(result.message)
+  }
 
-      console.error("EmailJS Error:", error)
-      addTerminalMessage("❌ Erro ao enviar email")
-    } finally {
+  feedback.className = "form-feedback success"
+  feedback.textContent =
+    "✅ Mensagem enviada com sucesso! Responderei em breve."
+  feedback.style.display = "block"
+
+  form.reset()
+
+  addTerminalMessage(`📧 Novo lead recebido de ${formData.name}`)
+
+} catch (error) {
+  feedback.className = "form-feedback error"
+  feedback.textContent =
+    "❌ Erro ao enviar mensagem. Tente novamente mais tarde."
+  feedback.style.display = "block"
+
+  console.error(error)
+  addTerminalMessage("❌ Erro ao enviar mensagem")
+} finally {
       // Remove loading state
       submitBtn.classList.remove("loading")
 

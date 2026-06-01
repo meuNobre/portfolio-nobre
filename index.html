@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nobre - Developer Portfolio</title>
-    <meta name="description" content="João Miguel Nobre Barros - Fullstack Developer, Robotics Mentor & Code Educator">
+    <meta name="description" content="João Miguel Nobre Barros - Fullstack Developer">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,73 +108,75 @@
                         <div class="dashboard">
                             <div class="dashboard-header">
                                 <h1 class="glitch" data-text="João Miguel Nobre Barros">João Miguel Nobre Barros</h1>
-                                <p class="subtitle">Fullstack Developer • Robotics Mentor • Code Educator</p>
+                                <p class="subtitle">Desenvolvedor Fullstack criando soluções digitais que ajudam negócios a crescer.</p>
                                 <div class="stats-inline">
                                     <span class="stat-badge">8 Anos de Código</span>
-                                    <span class="stat-badge">🏆 5+ Equipes Mentoradas</span>
                                     <span class="stat-badge">📍 Fortaleza, CE</span>
                                 </div>
                             </div>
 
-                            <div class="widgets-grid">
-                                <!-- Code Executor Widget -->
-                                <div class="widget code-executor">
-                                    <div class="widget-header">
-                                        <span class="widget-title">⚡ Code Executor</span>
-                                        <span class="widget-status online">●</span>
-                                    </div>
-                                    <div class="widget-body">
-                                        <div class="code-editor-mini">
-                                            <textarea id="codeInput" placeholder="# Experimente Python ou JavaScript aqui
-print('Hello from Nobre!')">def fibonacci(n):
-    if n <= 1: return n
-    return fibonacci(n-1) + fibonacci(n-2)
+                            <div class="services-section">
 
-print(f"Fib(10) = {fibonacci(10)}")</textarea>
-                                        </div>
-                                        <div class="executor-controls">
-                                            <select id="langSelect">
-                                                <option value="python">Python</option>
-                                                <option value="javascript">JavaScript</option>
-                                            </select>
-                                            <button class="btn-run" id="runCode">▶ Run</button>
-                                        </div>
-                                        <div class="output-console">
-                                            <div class="console-header">Output:</div>
-                                            <pre id="codeOutput">Aguardando execução...</pre>
-                                        </div>
+                                <h2 class="section-title">
+                                    💼 Como Posso Ajudar Sua Empresa
+                                </h2>
+
+                                <div class="services-grid">
+
+                                    <div class="service-card">
+                                        <h3>🌐 Sites Profissionais</h3>
+                                        <p>
+                                            Sites modernos para aumentar a credibilidade da empresa
+                                            e atrair novos clientes.
+                                        </p>
                                     </div>
+
+                                    <div class="service-card">
+                                        <h3>⚙️ Sistemas Web</h3>
+                                        <p>
+                                            Sistemas personalizados para organizar processos
+                                            e centralizar informações.
+                                        </p>
+                                    </div>
+
+                                    <div class="service-card">
+                                        <h3>🤖 Automações</h3>
+                                        <p>
+                                            Automatização de tarefas repetitivas para economizar
+                                            tempo e aumentar a produtividade.
+                                        </p>
+                                    </div>
+
+                                    <div class="service-card">
+                                        <h3>🔗 Integrações</h3>
+                                        <p>
+                                            Integração entre APIs, plataformas e sistemas para
+                                            simplificar operações.
+                                        </p>
+                                    </div>
+
                                 </div>
 
-                                <!-- Metrics Dashboard Widget -->
-                                <div class="widget metrics-dashboard">
+                            </div>
+
+                            <div class="widgets-grid">
+
+                                <!-- View Projects Button -->
+                                <div class="widget view-projects">
                                     <div class="widget-header">
-                                        <span class="widget-title">📈 Impact Metrics</span>
-                                        <span class="widget-status online">●</span>
+                                        <span class="widget-title">📁 View My Projects</span>
                                     </div>
                                     <div class="widget-body">
-                                        <div class="metrics-grid">
-                                            <div class="metric-card">
-                                                <div class="metric-value" data-target="5">0</div>
-                                                <div class="metric-label">Equipes Mentoradas</div>
-                                                <div class="metric-icon">🏆</div>
-                                            </div>
-                                            <div class="metric-card">
-                                                <div class="metric-value" data-target="8">0</div>
-                                                <div class="metric-label">Anos de Experiência</div>
-                                                <div class="metric-icon">⏱️</div>
-                                            </div>
-                                            <div class="metric-card">
-                                                <div class="metric-value" data-target="50">0+</div>
-                                                <div class="metric-label">Estudantes Impactados</div>
-                                                <div class="metric-icon">👥</div>
-                                            </div>
-                                            <div class="metric-card">
-                                                <div class="metric-value" data-target="4">0</div>
-                                                <div class="metric-label">Nacionais Alcançados</div>
-                                                <div class="metric-icon">🎯</div>
-                                            </div>
-                                        </div>
+                                        <p class="project-description">Confira alguns dos projetos que desenvolvi ao longo da minha carreira.</p>
+                                        <div class="hero-cta">
+                                <button class="btn-primary" onclick="document.querySelector('[data-file=\'network\']').click()">
+                                    📩 Solicitar Orçamento
+                                </button>
+
+                                <button class="btn-secondary" onclick="document.querySelector('[data-file=\'projects\']').click()">
+                                    💼 Ver Projetos
+                                </button>
+                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -299,8 +301,8 @@ print(f"Fib(10) = {fibonacci(10)}")</textarea>
                             <div class="project-card">
                                 <div class="project-header">
                                     <div class="project-title">
-                                        <h3>Sistema Fullstack Wayne Industries</h3>
-                                        <span class="project-badge">Infinity School</span>
+                                        <h3>Sistema de Gestão Empresarial</h3>
+                                        <span class="project-badge">Freelancer</span>
                                     </div>
                                     <div class="project-tech">
                                         <span class="tech-tag">Flask</span>
@@ -312,6 +314,7 @@ print(f"Fib(10) = {fibonacci(10)}")</textarea>
                                     <p class="project-description">
                                         Sistema completo com backend Flask + MySQL, frontend responsivo e dashboard funcional. 
                                         Implementação de CRUD completo com autenticação e gerenciamento de dados.
+                                        Desenvolvido para centralizar dados, automatizar processos e melhorar a organização da operação.
                                     </p>
                                     <div class="project-stats">
                                         <span>⭐ 15</span>

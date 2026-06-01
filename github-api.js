@@ -1,6 +1,6 @@
 const GITHUB_CONFIG = {
   username: "meuNobre",
-  apiBaseUrl: "https://portfolio.discloud.app/api",
+  apiBaseUrl: "https://github-api-portfolio-beta.vercel.app/api",
   repos: ["Path-Planner-FRC-for-FLL", "wayne-industries-project"],
 }
 
