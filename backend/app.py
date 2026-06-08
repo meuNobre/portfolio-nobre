@@ -10,7 +10,9 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/api/*": {
         "origins": [
-            "https://portfolio-nobre.discloud.app"
+            "https://portfolio-nobre.discloud.app",
+            "https://portfolio-nobre-five.vercel.app",
+            "http://127.0.0.1:5501"
         ]
     }
 })
